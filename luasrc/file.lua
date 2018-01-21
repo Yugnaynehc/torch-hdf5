@@ -144,6 +144,7 @@ function hdf5.HDF5File.open(filename, mode)
     end
     local function openFunc(filename, access)
         local fileID = hdf5.C.H5Fopen(filename, access, hdf5.H5P_DEFAULT)
+        fileID = tonumber(fileID)
         return hdf5.HDF5File(filename, fileID)
     end
     if mode == 'r' then
